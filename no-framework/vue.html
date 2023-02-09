@@ -16,14 +16,14 @@
               <img src="https://bulma.io/images/bulma-logo-white.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
             
           </a>
-          <div class="navbar-burger" data-target="navMenuColorprimary-example">
+          <div class="navbar-burger" :class = "{ 'is-acttive': isMenuActive }" @click="isMenuActive = !isMenuActive">
             <span></span>
             <span></span>
             <span></span>
           </div>
         </div>
       
-        <div id="navMenuColorprimary-example" class="navbar-menu">
+        <div class="navbar-menu" :class = "{ 'is-acttive': isMenuActive }" >
           <div class="navbar-start">
             <a class="navbar-item" href="https://bulma.io/">
               Home
@@ -120,30 +120,15 @@
                         
                         <div class="tabs is-boxed">
                             <ul>
-                              <li>
+
+                              <li v-for="tab in tabs" :class="{ 'is-active': currentTab == tab.name}" @click="currentTab = tab.name">
                                 <a>
-                                  <span class="icon is-small"><i class="fas fa-clipboard-list"></i></span>
-                                  <span>Current</span>
+                                  <span class="icon is-small"><i :class="tab.icon"></i></span>
+                                  <span>{{ tab.name }}</span>
                                 </a>
                               </li>
-                              <li class="is-active">
-                                <a>
-                                  <span class="icon is-small"><i class="fas fa-calendar-times"></i></span>
-                                  <span>Completed</span>
-                                </a>
-                              </li>
-                              <li>
-                                <a>
-                                  <span class="icon is-small"><i class="fas fa-calendar-day"></i></span>
-                                  <span>Upcoming</span>
-                                </a>
-                              </li>
-                              <li>
-                                <a>
-                                  <span class="icon is-small"><i class="fas fa-calendar"></i></span>
-                                  <span>All</span>
-                                </a>
-                              </li>
+                              
+                              
                             </ul>
                           </div>
                         <div class="panel-block">
@@ -324,6 +309,31 @@
           </div>
 
       </div>
+      <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+      
+      <script>
+      
+        vue.createApp({
+          data() {
+            return {
+              isMenuActive: false,
+              currentTab: 'All',
+              tabs: [
+                { name: 'All', icon: 'fas fa-list'},
+                { name: 'Completed', icon: 'fas fa-check'},
+                { name: 'Current', icon: 'fas fa-spinner' },
+                { name: 'Overdue', icon: 'fas fa-exclamation-triangle' },
+              ],
+              items: [
+                { name: 'Learn Vue', completed: true },
+              ],
+            }
+          }
+        }).mount('body')
+      </script>
+      
+      <!--
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" ></script>
       <script>
         $(function(){
@@ -350,5 +360,6 @@
             })
         })
       </script>
+    -->
 </body>
 </html>
