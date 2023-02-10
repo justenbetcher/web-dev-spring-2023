@@ -125,6 +125,8 @@
                                 <a>
                                   <span class="icon is-small"><i :class="tab.icon"></i></span>
                                   <span>{{ tab.name }}</span>
+                                  <span class="tag is-danger icon" v-show="tab.name == 'Current'">{{ items.filter(item => !item.completed).length }}</span>
+                                  <span class="tag is-success icon" v-show="tab.name == 'Completed'">{{ items.filter(item => item.completed).length }}</span>
                                 </a>
                               </li>
                               
@@ -133,31 +135,15 @@
                           </div>
                         <div class="panel-block">
                           <p class="control has-icons-left">
-                            <input class="input is-primary" type="text" placeholder="New Task">
+                            <input class="input is-primary" type="text" placeholder="New Task" v-model="newTask" @keypress.enter="addTask">
                             <span class="icon is-left">
                               <i class="fas fa-calendar-plus" aria-hidden="true"></i>
                             </span>
                           </p>
                         </div>
-                        <a class="panel-block">
-                            <input type="checkbox" checked />
-                            Make Bulma great again
-                        </a>
-                        <a class="panel-block">
-                            <input type="checkbox" />
-                            Add some more features
-                        </a>
-                        <a class="panel-block">
-                            <input type="checkbox" />
-                            Make a github account
-                        </a>
-                        <a class="panel-block">
-                            <input type="checkbox" />
-                            Learn how to use github
-                        </a>
-                        <a class="panel-block">
-                            <input type="checkbox" />
-                            add a .gitignore file
+                        <a v-for="item in items" class="panel-block" v-show="shouldShow(item)">
+                          <input type="checkbox" v-model="item.completed" />
+                          {{ item.name }}
                         </a>
                       </article>
 
@@ -314,7 +300,7 @@
       
       <script>
       
-        vue.createApp({
+        Vue.createApp({
           data() {
             return {
               isMenuActive: false,
@@ -324,6 +310,7 @@
                 { name: 'Completed', icon: 'fas fa-check' },
                 { name: 'Current', icon: 'fas fa-spinner' },
                 { name: 'Overdue', icon: 'fas fa-exclamation-triangle' },
+                { name: 'Trash', icon: 'fas fa-trash' },
               ],
               items: [
                 { name: 'Learn Vue', completed: true },
@@ -331,7 +318,6 @@
                 { name: 'Learn Angular', completed: false },
                 { name: 'Learn Svelte', completed: false },
                 { name: 'Learn Ember', completed: false },
-
               ],
               newTask: '',
             }
