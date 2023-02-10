@@ -141,7 +141,7 @@
                             </span>
                           </p>
                         </div>
-                        <a v-for="item in items" class="panel-block" v-show="shouldShow(item)">
+                        <a class="panel-block" v-for="item in items" v-show="shouldShow(item)">
                           <input type="checkbox" v-model="item.completed" />
                           {{ item.name }}
                         </a>
