@@ -1,0 +1,14 @@
+{
+  "name": "web-dev-spring-2023",
+  "version": "1.0.0",
+  "description": "![self portrate](https://www.gannett-cdn.com/authoring/2016/05/05/NTHR/ghows-TH-2ee5cde6-e2fc-3f57-e053-0100007f2d72-5737153b.jpeg?width=600&height=900&fit=crop&format=pjpg&auto=webp)",
+  "license": "BSD",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justenbetcher/web-dev-spring-2023.git"
+  },
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
