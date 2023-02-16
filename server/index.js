@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000; //usually use this port for dev
 const server = http.createServer((req, res) => { //the fat arrow (=>) function
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
+  res.end('Hello Newpaltz from nodemon hello');
 });
 
 server.listen(port, () => {
