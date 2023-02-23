@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import { createApp } from 'vue' //if no path is givien it automatically goes to the node_modules folder
 import App from './App.vue'
 import router from './router'
 

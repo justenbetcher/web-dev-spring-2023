@@ -1,6 +1,14 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+  import { RouterLink, RouterView } from 'vue-router'
+  import HelloWorld from './components/HelloWorld.vue'
+
+  let obj:any = { //any means treat it like a java script object instead of type script
+    msg: 'New Paltz Rocks!'
+  }
+
+  obj = 'hello world'
+
+
 </script>
 
 <template>
@@ -8,7 +16,7 @@ import HelloWorld from './components/HelloWorld.vue'
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="New Paltz Rocks!" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
