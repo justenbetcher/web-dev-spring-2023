@@ -15,6 +15,13 @@ import NavBar from './components/NavBar.vue';
 	
 	<NavBar />
 
+    <div class="container">
+
+        <!-- RouterView works to display what RouterLink is clicked at the moment. This has to be here to display what has been clicked -->
+        <RouterView />
+        
+    </div>
+
 </template>
 
 <style scoped>

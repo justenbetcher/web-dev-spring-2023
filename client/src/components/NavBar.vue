@@ -1,4 +1,5 @@
 <script setup lang="ts">
+    import { RouterLink, RouterView} from 'vue-router';
     const isMenuActive = false;
 
 </script>
@@ -24,7 +25,9 @@
               Home
             </a>
 
-            <RouterLink to="/" class="navbar-item">Home</RouterLink>
+            <!-- RouterLink works as a link to the router, it works like a bind to the path specified that is in the /router/index.ts file -->
+            <RouterLink to="/" class="navbar-item">Home</RouterLink> 
+
             <RouterLink to="/about" class="navbar-item">About</RouterLink>
 
             <div class="navbar-item has-dropdown is-hoverable">
