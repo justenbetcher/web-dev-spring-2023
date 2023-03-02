@@ -1,7 +1,14 @@
 <script setup lang="ts">
     import { RouterLink, RouterView} from 'vue-router';
-    const isMenuActive = false;
+    import { ref } from 'vue';
+	import LoginBadge from './LoginBadge.vue';
 
+    const isMenuActive = ref(false);
+
+    function toggleMenu(){
+      isMenuActive.value = !isMenuActive.value;
+      console.log({ isMenuActive });
+    }
 </script>
 
 <template>
@@ -12,14 +19,14 @@
             <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
             
           </a>
-          <div class="navbar-burger" :class ="{ 'is-active': isMenuActive }" @click="isMenuActive = !isMenuActive">
+          <div class="navbar-burger" v-bind:class ="{ 'is-active': isMenuActive }" @click="toggleMenu">
             <span></span>
             <span></span>
             <span></span>
           </div>
         </div>
       
-        <div class="navbar-menu" :class = "{ 'is-active': isMenuActive }" >
+        <div class="navbar-menu" v-bind:class = "{ 'is-active': isMenuActive }" >
           <div class="navbar-start">
             <a class="navbar-item" href="https://bulma.io/">
               Home
@@ -62,6 +69,9 @@
           </div>
       
           <div class="navbar-end">
+
+            <LoginBadge />
+
             <div class="navbar-item">
               <div class="field is-grouped">
                 <p class="control">
