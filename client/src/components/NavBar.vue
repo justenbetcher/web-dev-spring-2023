@@ -28,14 +28,14 @@
       
         <div class="navbar-menu" v-bind:class = "{ 'is-active': isMenuActive }" >
           <div class="navbar-start">
-            <a class="navbar-item" href="https://bulma.io/">
-              Home
-            </a>
+            
 
             <!-- RouterLink works as a link to the router, it works like a bind to the path specified that is in the /router/index.ts file -->
             <RouterLink to="/" class="navbar-item">Home</RouterLink> 
 
             <RouterLink to="/about" class="navbar-item">About</RouterLink>
+
+            <RouterLink to="/products" class="navbar-item">Products</RouterLink>
 
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
