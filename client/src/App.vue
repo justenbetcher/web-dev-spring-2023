@@ -1,12 +1,10 @@
 <script setup lang="ts">
-  import { RouterLink, RouterView } from 'vue-router'
-  import NavBar from './components/NavBar.vue';
+import { RouterLink, RouterView } from 'vue-router'
+import Cart from './components/Cart.vue';
+import Flyout from './components/Flyout.vue';
+import NavBar from './components/NavBar.vue';
+  
 
-  let obj:any = { //any means treat it like a java script object instead of type script
-    msg: 'New Paltz Rocks!'
-  }
-
-  obj = 'hello world'
 
 
 </script>
@@ -17,10 +15,14 @@
 
     <div class="container">
 
-      <!-- RouterView works to display what RouterLink is clicked at the moment. This has to be here to display what has been clicked -->
-      <RouterView />
+        <!-- RouterView works to display what RouterLink is clicked at the moment. This has to be here to display what has been clicked -->
+        <RouterView />
         
     </div>
+
+    <Flyout >
+        <Cart />
+    </Flyout>
 
 </template>
 
