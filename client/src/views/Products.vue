@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { getProducts, type Product } from '../model/products'
+import { addToCart } from '../model/cart';
 
 const products = ref(getProducts());
+
 </script>
 
 <template>
@@ -23,7 +25,7 @@ const products = ref(getProducts());
                         {{ product.price }}
                     </i>
                 </p>
-                <button class="button is-primary">+</button>
+                <button class="button is-primary" @click="addToCart(product)">+</button>
             </div>
         </div>
     </div>
@@ -46,7 +48,10 @@ const products = ref(getProducts());
         background-color: white;
         border-radius: 5px;
         box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
-
+    }
+    .price {
+        font-size: 1.5rem;
+        font-weight: bold;
     }
 
 </style>

@@ -1,4 +1,5 @@
 import { reactive } from "vue";
+import { useRouter } from "vue-router";
 
 const session = reactive({
     user: null as User | null,
@@ -19,5 +20,13 @@ export function useSession() {
 export function login() {
     session.user = {
         name: "John Doe",
+    }
+}
+
+export function useLogout() {
+    const router = useRouter();
+    return function(){
+        session.user == null;
+        router.push('/login');
     }
 }

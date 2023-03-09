@@ -1,15 +1,16 @@
 <script setup lang="ts">
     import { ref } from 'vue';
-    import { useSession , login} from '@/model/session';
+    import { useSession , login, useLogout} from '@/model/session';
 
     const session = useSession();
+	const logout = useLogout();
 </script>
 
 <template>
 
     <div class="navbar-item" v-if="session.user">
         Wecome, {{  session.user.name }}
-        (<a @click="session.user=null">logout</a>)
+        (<a @click="logout">logout</a>)
 	</div>
 
     <div class="navbar-item" v-else>

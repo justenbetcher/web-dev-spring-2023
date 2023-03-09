@@ -1,9 +1,13 @@
 <script setup lang="ts">
-    import { RouterLink, RouterView} from 'vue-router';
-    import { ref } from 'vue';
-	import LoginBadge from './LoginBadge.vue';
+import { RouterLink, RouterView} from 'vue-router';
+import { ref } from 'vue';
+import LoginBadge from './LoginBadge.vue';
+import { quantity } from '../model/cart';
+import Flyout from './Flyout.vue';
+import Cart from './Cart.vue';
 
     const isMenuActive = ref(false);
+    const isCartActive = ref(false);
 
     function toggleMenu(){
       isMenuActive.value = !isMenuActive.value;
@@ -70,6 +74,15 @@
       
           <div class="navbar-end">
 
+            <div class="navbar-item">
+              <button class="button is-primary" v-bind:class="{'is-active': isCartActive}" @click="isCartActive = !isCartActive">
+                <span class="icon">
+                  <i class="fas fa-shopping-cart"></i>
+                  <span class="tag is-danger quantity-tag">{{ quantity }}</span>
+                </span>
+              </button>
+            </div>
+
             <LoginBadge />
 
             <div class="navbar-item">
@@ -97,8 +110,19 @@
           </div>
         </div>
       </nav>
+      <Flyout v-bind:class="{ 'is-active': isCartActive }">
+        <Cart />
+      </Flyout>
 </template>
 
 <style scoped>
-
+  .quanitity-tag{
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    border-radius: 1rem;
+  }
+  Flyout{
+    z-index: 50;
+  }
 </style>

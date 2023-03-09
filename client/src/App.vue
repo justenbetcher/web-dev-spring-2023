@@ -20,10 +20,6 @@ import NavBar from './components/NavBar.vue';
         
     </div>
 
-    <Flyout >
-        <Cart />
-    </Flyout>
-
 </template>
 
 <style scoped>

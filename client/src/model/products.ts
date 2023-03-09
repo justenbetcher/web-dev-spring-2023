@@ -12,7 +12,7 @@ export interface Product {
     brand: string;
     category: string;
     thumbnail: string;
-    images: string[];
+    images?: string[];
 }
 
 export function getProducts(): Product[] {
