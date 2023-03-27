@@ -10,7 +10,14 @@ const products = require('./controllers/products');
 // Middleware
 app
 	.use(express.json())
-	.use(express.static(path.join(__dirname, '../client/dist')));
+	.use(express.static(path.join(__dirname, '../client/dist')))
+
+	.use((req, res, next) => {
+		res.header('Access-Control-Allow-Origin', '*')
+		res.header('Access-Control-Allow-Headers', 'Origin, X-Requsted-With, Content-Type, Accespt')
+		res.header('Access-Control-Allow-Headers', 'GET, POST, PUT, PATCH, DELETE, OPTIONS')
+		next()
+	})
 
 // Actions
 app 
