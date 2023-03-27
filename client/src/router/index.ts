@@ -3,7 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import Products from '../views/Products.vue'
 import Login from '../views/Login.vue'
-import { useSession } from '../model/session.ts'
+import { useSession } from '../model/session'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
