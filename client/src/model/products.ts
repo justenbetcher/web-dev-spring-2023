@@ -1,4 +1,5 @@
 import data from '../data/products.json';
+import { api } from './myfetch';
 
 
 export interface Product {
@@ -16,5 +17,8 @@ export interface Product {
 }
 
 export function getProducts(): Product[] {
+    api('products').then(res => {
+        console.log(res)
+    })
     return data.products;
 }
