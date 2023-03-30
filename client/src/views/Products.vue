@@ -3,7 +3,10 @@ import { ref } from 'vue';
 import { getProducts, type Product } from '../model/products'
 import { addToCart } from '../model/cart';
 
-const products = ref(getProducts());
+const products = ref([] as Product[]); // ref<Product[]>([]); is the same way of writeing it
+getProducts().then((data) => {
+    products.value = data;
+})
 
 </script>
 
@@ -15,6 +18,7 @@ const products = ref(getProducts());
         
 
         <div class="product-list">
+            <!--<progress v-if="products.length = 0">-->
             <div class="product" v-for="product in products" :key="product.id">
                 <img :src="product.thumbnail" :alt="product.title"/>
                 <h3>{{ product.title }}</h3>
