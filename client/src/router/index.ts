@@ -32,7 +32,9 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: Login
-    }
+    },
+    { path: '/admin/products', name: 'admin-products', component: () => import('../views/admin/ProductList.vue'), beforeEnter: secureRoute },
+    { path: '/admin/products/edit/:id?', name: 'admin-products-edit', component: () => import('../views/admin/ProductsEdit.vue'), beforeEnter: secureRoute },
   ]
 })
 

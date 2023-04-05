@@ -5,7 +5,7 @@ import { addToCart } from '../model/cart';
 
 const products = ref([] as Product[]); // ref<Product[]>([]); is the same way of writeing it
 getProducts().then((data) => {
-    products.value = data;
+    products.value = data.data;
 })
 
 </script>

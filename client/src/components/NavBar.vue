@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { RouterLink, RouterView} from 'vue-router';
+import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
-import LoginBadge from './LoginBadge.vue';
 import { quantity } from '../model/cart';
+
+import LoginBadge from './LoginBadge.vue';
 import Flyout from './Flyout.vue';
 import Cart from './Cart.vue';
+import Notifications from './Notifications.vue';
 
     const isMenuActive = ref(false);
     const isCartActive = ref(false);
@@ -42,32 +44,17 @@ import Cart from './Cart.vue';
             <RouterLink to="/products" class="navbar-item">Products</RouterLink>
 
             <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
-                Docs
+              <a class="navbar-link" href="#">
+                Admin
               </a>
               <div class="navbar-dropdown">
-                <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
-                  Overview
-                </a>
-                <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
-                  Modifiers
-                </a>
-                <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-                  Columns
-                </a>
-                <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
-                  Layout
-                </a>
-                <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
-                  Form
-                </a>
-                <hr class="navbar-divider">
-                <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
-                  Elements
-                </a>
-                <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
-                  Components
-                </a>
+                <RouterLink class="navbar-item" to="/admin/products">
+                  Products 
+                </RouterLink>
+
+                <RouterLink class="navbar-item" to="/admin/users">
+                  users
+                </RouterLink>
               </div>
             </div>
           </div>
@@ -75,6 +62,7 @@ import Cart from './Cart.vue';
           <div class="navbar-end">
 
             <div class="navbar-item">
+              <Notifications />
               <button class="button is-primary" v-bind:class="{'is-active': isCartActive}" @click="isCartActive = !isCartActive">
                 <span class="icon">
                   <i class="fas fa-shopping-cart"></i>
