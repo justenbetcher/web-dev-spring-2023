@@ -4,20 +4,24 @@ const router = express.Router();
 
 router
     .get('/', (req, res) => {
-        res.send(list)
+        const list = model.getProducts();
+        const data = { data: list, total: list.length,  isSuccess: true}
+        res.send(data)
     })
 
     .get('/search/:q', (req, res) => {
         const term = req.params.q;
         console.log({ term });
         const list = model.searchProducts(term);
-        res.send(list);
+        const data = { data: list, total: list.length, isSuccess: true }
+        res.send(data);
     })
 
     .get('/:id', (req, res) => {
         const id = +req.params.id;
         const product = model.getProductById(id);
-        res.send(product);
+        const data = { data: product, isSuccess: true };
+        res.send(data);
     })
 
     .post('/', (req, res) => {
@@ -29,19 +33,22 @@ router
         console.log( req.headers );
 
         model.addProduct(product);
-        res.send(poduct);
+        const data = { data: product, isSuccess: true };
+        res.send(data);
     })
 
     .patch('/:id', (req, res) => {
         const product = req.body;
         model.updateProduct(product);
-        res.send(product);
+        const data = { data: product, isSuccess: true };
+        res.send(data);
     })
 
     .delete('/:id', (req, res) => {
         const id = +req.params.id;
         model.deleteProduct.id;
-        res.send({id});
+        const data = { data: id, isSuccess: true }
+        res.send(data);
     })
 
     module.exports = router;
