@@ -33,11 +33,23 @@ app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, '../client/dist/index.html'))
 });
 
+// Error handling
+app
+	.use((err, req, res, next) => {
+		console.error(err);
+		const msg = {
+			status: err.code || 500,
+			error: err.message || 'Internal Server Error',
+			isSuccess: false
+		}
+		res.status(msg.status).json(msg)
+	})
+
 console.log('1: About to start server');
 
 
 app.listen(port, () => {
-  console.log(`Server running at http://${hostname}:${port}/`); // backtik (`) allows you to place variables right in the string using ${variable} notation
+  	console.log(`Server running at http://${hostname}:${port}/`); // backtik (`) allows you to place variables right in the string using ${variable} notation
 });
 
 console.log('3: Asked server to start');
