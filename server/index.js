@@ -15,8 +15,8 @@ app
 
 	.use((req, res, next) => {
 		res.header('Access-Control-Allow-Origin', '*')
-		res.header('Access-Control-Allow-Headers', 'Origin, X-Requsted-With, Content-Type, Accespt')
-		res.header('Access-Control-Allow-Headers', 'GET, POST, PUT, PATCH, DELETE, OPTIONS')
+		res.header('Access-Control-Allow-Headers', 'Origin, X-Requsted-With, Content-Type, Accept')
+		res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS')
 		next()
 	})
 
