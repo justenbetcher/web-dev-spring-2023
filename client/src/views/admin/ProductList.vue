@@ -11,10 +11,11 @@ getProducts().then((data) => {
 
 <template>
     <div class="admin-products-list">
-        <RouterLink to="/admin/porducts/edit" class="button is-primary admin-add-product">
+        <RouterLink to="/admin/products/edit" class="button is-primary admin-add-product">
             <div class="icon">
                 <i class="fas fa-plus"></i>
             </div>
+            <span>Add a Product</span>
         </RouterLink>
     
 

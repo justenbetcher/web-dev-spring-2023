@@ -14,11 +14,12 @@
                 <i class="fas fa-bell fa-lg" v-bind:class="{'fa-beat-fade' : session.isLoading}"></i>
             </span>
         </button>
-    </div>
-    <div class="notification-list" v-show="isActive">
-        <div v-for="msg, i in session.messages" v-bind:class="`notificatoins is-light is-${msg.type}`">
-            <button class="delete" @click="deleteMessage(i)"></button>
-            {{ msg.msg }}
+    
+        <div class="notification-list" v-show="isActive">
+            <div v-for="msg, i in session.messages" v-bind:class="`notificatoins is-light is-${msg.type}`">
+                <button class="delete" @click="deleteMessage(i)"></button>
+                {{ msg.msg }}
+            </div>
         </div>
     </div>
 </template>
@@ -28,7 +29,7 @@
     .notificatoins {
         position: relative;
     }
-    .notifications-list {
+    .notification-list {
         position: absolute;
         margin-top: 5px;
         width: 300px;
